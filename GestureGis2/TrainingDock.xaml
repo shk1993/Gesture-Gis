@@ -30,13 +30,14 @@
                 </TextBlock.ToolTip>
       </TextBlock>
         </DockPanel>
-        <Border BorderBrush="Black" ClipToBounds="true" BorderThickness="1" HorizontalAlignment="Left" Height="215" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="141">
-            <Canvas HorizontalAlignment="Left" Height="213" VerticalAlignment="Top" Width="139" Name="trainPad" MouseDown="trainPad_MouseDown" MouseMove="trainPad_MouseMove" >
+        <Border BorderBrush="Black" ClipToBounds="true" BorderThickness="1" HorizontalAlignment="Left" Height="215" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="241">
+            <Canvas Height="213" VerticalAlignment="Top" Name="trainPad" MouseDown="trainPad_MouseDown" MouseMove="trainPad_MouseMove"  >
                 <Canvas.Background>
                     <SolidColorBrush Color="White" Opacity="0"/>
                 </Canvas.Background>
             </Canvas>
         </Border>
-        <Button Content="Submit" Click="Button_Click" HorizontalAlignment="Left" Margin="106,248,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Height="22"/>
+        <Button Content="New Example" Click="Button_AddNewExample" HorizontalAlignment="Left" Margin="10,220,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Height="22"/>
+        <Button Content="New Gesture" Click="Button_AddNewGesture" HorizontalAlignment="Left" Margin="166,222,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>

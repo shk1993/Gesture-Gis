@@ -32,8 +32,8 @@
                 </TextBlock.ToolTip>
       </TextBlock>
         </DockPanel>
-        <Border BorderBrush="Black" ClipToBounds="true" BorderThickness="1" HorizontalAlignment="Left" Height="215" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="141">
-            <Canvas  Height="213"  Width="139" Name="sketchPad"  MouseDown="sketchPad_MouseDown" MouseMove="sketchPad_MouseMove" >
+        <Border BorderBrush="Black" ClipToBounds="true" BorderThickness="1" HorizontalAlignment="Left" Height="215" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="241">
+            <Canvas  Height="213"  Name="sketchPad"  MouseDown="sketchPad_MouseDown" MouseMove="sketchPad_MouseMove" >
                 <Canvas.Background>
                     <SolidColorBrush Color="White" Opacity="0"/>
                 </Canvas.Background>

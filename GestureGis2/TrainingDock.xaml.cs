@@ -22,6 +22,9 @@ namespace GestureGis2
     public partial class TrainingDockView : UserControl
     {
         Point currentPoint = new Point();
+        List<List<List<Point>>> gestureSet = new List<List<List<Point>>>();
+        List<List<Point>> gesturePoints = new List<List<Point>>();
+        List<Point> gesture = new List<Point>();
         public TrainingDockView()
         {
             InitializeComponent();
@@ -30,7 +33,11 @@ namespace GestureGis2
         private void trainPad_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                gesture.Add(e.GetPosition(this));
                 currentPoint = e.GetPosition(this);
+            }
+               
         }
 
         private void trainPad_MouseMove(object sender, MouseEventArgs e)
@@ -38,7 +45,7 @@ namespace GestureGis2
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 Line line = new Line();
-
+                gesture.Add(e.GetPosition(this));
                 line.Stroke = SystemColors.ControlDarkDarkBrush;
                 line.X1 = currentPoint.X;
                 line.Y1 = currentPoint.Y;
@@ -51,9 +58,28 @@ namespace GestureGis2
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_AddNewExample(object sender, RoutedEventArgs e)
         {
-            trainPad.Children.Clear();
+            //ToDo: Add error check if no sketch is drawn as an example
+            if (gesture.Count > 0)
+            {
+                gesturePoints.Add(gesture);
+                gesture = new List<Point>();
+                trainPad.Children.Clear();
+            }
+            
         }
+
+        private void Button_AddNewGesture(object sender, RoutedEventArgs e)
+        {
+            //ToDo: Add error check if no examples have been added to the new gesture
+            if (gesturePoints.Count > 0)
+            {
+                gestureSet.Add(gesturePoints);
+                gesturePoints = new List<List<Point>>();
+                trainPad.Children.Clear();
+            }
+        }
+        
     }
 }

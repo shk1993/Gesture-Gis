@@ -23,6 +23,9 @@ namespace GestureGis2
     {
         Point currentPoint = new Point();
         
+
+        List<Point> gesture = new List<Point>();
+
         public Dockpane1View()
         {
             InitializeComponent();
@@ -33,7 +36,7 @@ namespace GestureGis2
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 Line line = new Line();
-
+                gesture.Add(e.GetPosition(this));
                 line.Stroke = SystemColors.ControlDarkDarkBrush;
                 line.X1 = currentPoint.X;
                 line.Y1 = currentPoint.Y;
@@ -49,7 +52,11 @@ namespace GestureGis2
         private void sketchPad_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                gesture.Add(e.GetPosition(this));
                 currentPoint = e.GetPosition(this);
+            }
+                
         }
 
         private void sketchPad_MouseUp(object sender, MouseButtonEventArgs e)
@@ -59,6 +66,7 @@ namespace GestureGis2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            gesture = new List<Point>();
             sketchPad.Children.Clear();
         }
     }
