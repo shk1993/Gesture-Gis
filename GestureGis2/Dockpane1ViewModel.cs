@@ -30,7 +30,7 @@ namespace GestureGis2
         /// <summary>
         /// Text shown near the top of the DockPane.
         /// </summary>
-        private string _heading = "My DockPane";
+        private string _heading = "Input Gesture";
         public string Heading
         {
             get { return _heading; }

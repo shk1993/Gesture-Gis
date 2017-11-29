@@ -17,18 +17,23 @@ using System.Windows.Shapes;
 namespace GestureGis2
 {
     /// <summary>
-    /// Interaction logic for Dockpane1View.xaml
+    /// Interaction logic for TrainingDockView.xaml
     /// </summary>
-    public partial class Dockpane1View : UserControl
+    public partial class TrainingDockView : UserControl
     {
         Point currentPoint = new Point();
-        
-        public Dockpane1View()
+        public TrainingDockView()
         {
             InitializeComponent();
         }
 
-        private void sketchPad_MouseMove(object sender, MouseEventArgs e)
+        private void trainPad_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ButtonState == MouseButtonState.Pressed)
+                currentPoint = e.GetPosition(this);
+        }
+
+        private void trainPad_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -42,24 +47,13 @@ namespace GestureGis2
 
                 currentPoint = e.GetPosition(this);
 
-                sketchPad.Children.Add(line);
+                trainPad.Children.Add(line);
             }
-        }
-
-        private void sketchPad_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ButtonState == MouseButtonState.Pressed)
-                currentPoint = e.GetPosition(this);
-        }
-
-        private void sketchPad_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            sketchPad.Children.Clear();
+            trainPad.Children.Clear();
         }
     }
 }

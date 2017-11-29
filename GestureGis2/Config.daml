@@ -25,6 +25,7 @@
           <!-- host controls within groups -->
           <button refID="GestureGis2_Button1" size="large" />
           <button refID="GestureGis2_Dockpane1_ShowButton" size="large" />
+          <button refID="GestureGis2_TrainingDock_ShowButton" size="large" />
         </group>
       </groups>
       <controls>
@@ -38,10 +39,16 @@
         <button id="GestureGis2_Dockpane1_MenuButton" caption="Burger Menu Button" className="Dockpane1_MenuButton" loadOnClick="true" smallImage="Images\GenericButtonPurple16.png" largeImage="Images\GenericButtonPurple32.png">
           <tooltip heading="Burger Menu Button">ToolTip<disabledText /></tooltip>
         </button>
+        <button id="GestureGis2_TrainingDock_ShowButton" caption="Show TrainingDock" className="TrainingDock_ShowButton" loadOnClick="true" smallImage="Images\GenericButtonPurple16.png" largeImage="Images\GenericButtonPurple32.png">
+          <tooltip heading="Show Dockpane">Show Dockpane<disabledText /></tooltip>
+        </button>
       </controls>
       <dockPanes>
         <dockPane id="GestureGis2_Dockpane1" caption="Dockpane 1" className="Dockpane1ViewModel" dock="group" dockWith="esri_core_contentsDockPane">
           <content className="Dockpane1View" />
+        </dockPane>
+        <dockPane id="GestureGis2_TrainingDock" caption="TrainingDock" className="TrainingDockViewModel" dock="group" dockWith="esri_core_contentsDockPane">
+          <content className="TrainingDockView" />
         </dockPane>
       </dockPanes>
       <menus>
