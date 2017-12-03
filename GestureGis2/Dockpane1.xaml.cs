@@ -59,10 +59,6 @@ namespace GestureGis2
                 
         }
 
-        private void sketchPad_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-           
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

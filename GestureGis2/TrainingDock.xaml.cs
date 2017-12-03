@@ -22,7 +22,9 @@ namespace GestureGis2
     public partial class TrainingDockView : UserControl
     {
         Point currentPoint = new Point();
-        List<List<List<Point>>> gestureSet = new List<List<List<Point>>>();
+        String attrVal = "";
+        Dictionary<String, List<List<Point>>> gestureDict = new Dictionary<string, List<List<Point>>>();
+        //List<List<List<Point>>> gestureSet = new List<List<List<Point>>>();
         List<List<Point>> gesturePoints = new List<List<Point>>();
         List<Point> gesture = new List<Point>();
         public TrainingDockView()
@@ -72,10 +74,12 @@ namespace GestureGis2
 
         private void Button_AddNewGesture(object sender, RoutedEventArgs e)
         {
+            attrVal= AttributeVal.Text;
             //ToDo: Add error check if no examples have been added to the new gesture
-            if (gesturePoints.Count > 0)
+            if (gesturePoints.Count > 0 && attrVal!="")
             {
-                gestureSet.Add(gesturePoints);
+                //gestureSet.Add(gesturePoints);
+                gestureDict.Add(attrVal,gesturePoints);
                 gesturePoints = new List<List<Point>>();
                 trainPad.Children.Clear();
             }
